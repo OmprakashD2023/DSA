@@ -1,115 +1,132 @@
-//* Balanced Parenthesis
+/*
+  ? Linked List implementation of the stack
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
+class Node
+{
+public:
+	int data;
+	Node *next;
+
+	Node(int data)
+	{
+		this->data = data;
+	}
+};
+
 class MyStack
 {
 private:
-	char *arr;
-	int next;
-	int capacity;
+	Node *head;
+	int size;
 
 public:
-	MyStack(int c)
+	MyStack()
 	{
-		arr = new char[c];
-		capacity = c;
-		next = -1;
+		head = NULL;
+		size = 0;
 	}
 
-	void push(char x)
+	void push(int x)
 	{
-		if (next == capacity - 1)
-		{
-			cout << "Stack overflow" << endl;
-			return;
-		}
-		/*
-			T *newarr = new T[2*capacity];
-			capacity = 2*capacity;
-			for(int i=0; i<capacity; i++){
-				newarr[i] = arr[i];
-			}
-			delete[] arr;
-			arr = newarr;
-			next++;
-			arr[next]=x;
-		*/
-		next++;
-		arr[next] = x;
+		Node *temp = new Node(x);
+		temp->next = head;
+		head = temp;
+		if(head == NULL)
+			head = temp;
+		size++;
 	}
 
-	char pop()
+	int pop()
 	{
-		if (next == -1)
+		if (head == NULL)
 		{
-			cout << "Stack underflow" << endl;
-			return 'A';
+			cout << "Stack Underflow!" << endl;
+			return -1;
 		}
-		char res = arr[next];
-		next--;
+		int res = head->data;
+		Node *temp = head;
+		head = head->next;
+		delete temp;
+		size--;
 		return res;
 	}
 
-	char top()
+	int sizeStack()
 	{
-		if (next == -1)
-		{
-			cout << "Undefined Behavior" << endl;
-			return 'A';
-		}
-		return arr[next];
-	}
-
-	int size()
-	{
-		return next + 1;
+		return size;
 	}
 
 	bool isEmpty()
 	{
-		return (next == -1);
+		return head == NULL;
+	}
+
+	int top()
+	{
+		if (head == NULL)
+		{
+			cout << "Stack is empty" << endl;
+			return -1;
+		}
+		return head->data;
+	}
+
+	void print()
+	{
+		if (head == NULL)
+		{
+			cout << "Stack is empty" << endl;
+			return;
+		}
+		Node *temp = head;
+		while (temp!=NULL)
+		{
+			cout << temp->data << " ";
+			temp = temp->next;
+		}
+		cout << "\n";
 	}
 };
-
-bool match(char a, char b)
+int main()
 {
-	return (a == '(' && b == ')') || (a == '[' && b == ']') || (a == '{' && b == '}');
-}
-
-bool isBalanced(string str)
-{
-	MyStack s = MyStack(str.length());
-	for (char x : str)
+	MyStack stack = MyStack();
+	int choice;
+	cout << "Enter 1 to push an element into the stack.\nEnter 2 to pop an element from the stack.\nEnter 3 to print the size of the stack.\nEnter 4 to print the top of the stack.\nEnter 5 to print the stack." << endl;
+	cin >> choice;
+	do
 	{
-		if (x == '{' || x == '(' || x == '[')
+		if (choice == 1)
 		{
-			s.push(x);
+			int x;
+			cout << "Enter the data : ";
+			cin >> x;
+			stack.push(x);
+		}
+		else if (choice == 2)
+		{
+			cout << stack.pop() << endl;
+		}
+		else if (choice == 3)
+		{
+			cout << stack.sizeStack() << endl;
+		}
+		else if (choice == 4)
+		{
+			cout << stack.top() << endl;
+		}
+		else if (choice == 5)
+		{
+			stack.print();
 		}
 		else
 		{
-			if (s.isEmpty() == true)
-			{
-				return false;
-			}
-			if (match(s.top(), x) == false)
-			{
-				return false;
-			}
-			else
-				s.pop();
+			cout << "Invalid choice" << endl;
 		}
-	}
-	return s.isEmpty() == true;
-}
-
-int main()
-{
-	string s;
-	cout << "Enter the sequence : ";
-	cin >> s;
-	if (isBalanced(s))
-		cout << "True" << endl;
-	else
-		cout << "False" << endl;
+		cout << "Enter 1 to push an element into the stack.\nEnter 2 to pop an element from the stack.\nEnter 3 to print the size of the stack.\nEnter 4 to print the top of the stack.\nEnter 5 to print the stack." << endl;
+		cin >> choice;
+	}while(choice);
 	return 0;
 }
