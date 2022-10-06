@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"path": "../DSA"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"vector": "cpp",
+			"*.tcc": "cpp",
+			"deque": "cpp",
+			"list": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"bitset": "cpp",
+			"cstdlib": "cpp",
+			"algorithm": "cpp",
+			"functional": "cpp",
+			"regex": "cpp",
+			"cwctype": "cpp",
+			"cwchar": "cpp",
+			"cuchar": "cpp",
+			"ctgmath": "cpp",
+			"cstdint": "cpp",
+			"cstdbool": "cpp",
+			"cstdalign": "cpp",
+			"complex": "cpp",
+			"exception": "cpp",
+			"fstream": "cpp",
+			"iomanip": "cpp",
+			"istream": "cpp",
+			"streambuf": "cpp",
+			"array": "cpp",
+			"limits": "cpp",
+			"ostream": "cpp",
+			"ratio": "cpp",
+			"sstream": "cpp",
+			"iostream": "cpp"
+		}
+	}
+}
