@@ -1,27 +1,29 @@
 /*
-    Adjacency List
+    DFS of an undirected graph
 */
 #include <bits/stdc++.h>
+#include "Lecture-1.cpp"
 using namespace std;
 
-void addEdge(vector<int> adj[], int u, int v)
+void DFSRec(vector<int> adj[], int s, bool visited[])
 {
-    adj[u].push_back(v);
-    adj[v].push_back(u);
-}
-
-void printGraph(vector<int> adj[], int V)
-{
-    for (int i = 0; i < V; i++)
+    visited[s] = true;
+    cout << s << " ";
+    for (int u : adj[s])
     {
-        cout<<i<<" -> ";
-        for (auto x : adj[i])
-            cout << x << " ";
-        cout << endl;
+        if (visited[u] == false)
+            DFSRec(adj, u, visited);
     }
 }
 
-/*
+void DFS(vector<int> adj[], int V)
+{
+    bool visited[V] = {false};
+    for (int i = 0; i < V; i++)
+        if (visited[i] == false)
+            DFSRec(adj, i, visited);
+}
+
 int main()
 {
     int n;
@@ -39,6 +41,6 @@ int main()
         cin >> ch;
     }
     printGraph(adj, n);
+    DFS(adj, n);
     return 0;
 }
-*/
