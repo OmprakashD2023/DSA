@@ -4,10 +4,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Undirected Graph
 void addEdge(vector<int> adj[], int u, int v)
 {
     adj[u].push_back(v);
     adj[v].push_back(u);
+}
+
+//Directed Graph
+void addEdgeDirected(vector<int> adj[], int u, int v){
+    adj[u].push_back(v);
 }
 
 void printGraph(vector<int> adj[], int V)
@@ -20,6 +26,7 @@ void printGraph(vector<int> adj[], int V)
         cout << endl;
     }
 }
+
 
 /*
 int main()
