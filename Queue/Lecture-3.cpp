@@ -58,11 +58,11 @@ public:
     }
 
     int getFront(){
-        return front->data;
+        return front == NULL ? -9999 : front->data;
     }
 
     int getRear(){
-        return rear->data;
+        return rear == NULL ? -9999 : rear->data;
     }
 
     bool isEmpty(){
