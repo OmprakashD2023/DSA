@@ -1,8 +1,8 @@
 /*
-    Infix to Postix
+    Infix to Prefix
 */
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int prec(char c)
@@ -17,23 +17,25 @@ int prec(char c)
         return -1;
 }
 
-string infixToPostfix(string s)
+string infixToPrefix(string s)
 {
-    stack<int> st;
+    stack<char> st;
+    reverse(s.begin(), s.end());
     string res;
+
     for (int i = 0; i < s.length(); i++)
     {
         if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z')
         {
             res += s[i];
         }
-        else if (s[i] == '(')
+        else if (s[i] == ')')
         {
             st.push(s[i]);
         }
-        else if (s[i] == ')')
+        else if (s[i] == '(')
         {
-            while (!st.empty() && st.top() != '(')
+            while (!st.empty() && st.top() != ')')
             {
                 res += st.top();
                 st.pop();
@@ -51,13 +53,12 @@ string infixToPostfix(string s)
             st.push(s[i]);
         }
     }
-
     while (!st.empty())
     {
         res += st.top();
         st.pop();
     }
-
+    reverse(res.begin(), res.end());
     return res;
 }
 
@@ -67,9 +68,9 @@ int main()
     cout << "Enter the Infix Expression : ";
     cin >> s;
 
-    // s = "a+b*(c^d-e)^(f+g*h)-i"
-    // Output : "abcd^e-fgh*+^*+i-"
-    
-    cout << infixToPostfix(s);
+    // s = "(a-b/c)*(a/k-l)"
+    // Output : "*-a/bc-/akl"
+
+    cout << infixToPrefix(s);
     return 0;
 }
