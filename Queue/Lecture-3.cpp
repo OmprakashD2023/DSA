@@ -31,6 +31,7 @@ public:
         if (rear == NULL)
         {
             front = rear = temp;
+            size++;
             return;
         }
         size++;
@@ -53,19 +54,23 @@ public:
         delete (temp);
     }
 
-    int getSize(){
+    int getSize()
+    {
         return size;
     }
 
-    int getFront(){
+    int getFront()
+    {
         return front == NULL ? -9999 : front->data;
     }
 
-    int getRear(){
+    int getRear()
+    {
         return rear == NULL ? -9999 : rear->data;
     }
 
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return front == NULL;
     }
 };
