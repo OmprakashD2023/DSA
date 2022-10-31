@@ -17,6 +17,7 @@ public:
     }
 };
 
+/*
 int main()
 {
     TreeNode *root = new TreeNode();
@@ -25,3 +26,4 @@ int main()
     cout<<"Height of the Tree : "<<obj.height(root);
     return 0;
 }
+*/
