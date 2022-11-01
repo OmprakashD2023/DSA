@@ -15,7 +15,7 @@ void BFS(vector<int> adj[], int S,bool visited[])
     {
         int u = q.front();
         q.pop();
-        cout << u << " ";
+        // cout << u << " ";
         for (int v : adj[u])
         {
             if (visited[v] == false)

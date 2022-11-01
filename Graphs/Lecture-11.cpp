@@ -20,7 +20,7 @@ bool DFSRec(vector<int> adj[], int src, bool visited[], bool res[])
         {
             return true;
         }
-        res[x] = false;
+        res[src] = false;
         return false;
     }
 }
@@ -49,7 +49,7 @@ int main()
     {
         cout << "Enter the adjacent vertex : ";
         cin >> u >> v;
-        addEdge(adj, u, v);
+        addEdgeDirected(adj, u, v);
         cout << "Enter your choice : ";
         cin >> ch;
     }

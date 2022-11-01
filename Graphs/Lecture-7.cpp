@@ -1,5 +1,5 @@
 /*
-    DFS of an undirected graph
+    DFS of a disconnected graph
 */
 #include <bits/stdc++.h>
 #include "Lecture-1.cpp"

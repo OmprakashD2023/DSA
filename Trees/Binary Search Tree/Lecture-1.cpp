@@ -1,5 +1,5 @@
 /*
-    Search and Insertion in Binary Search Tree
+    Basic Operations   in Binary Search Tree
 */
 
 #include <bits/stdc++.h>
@@ -11,7 +11,8 @@ class BST
     BST *left, *right;
 
 public:
-    BST(){
+    BST()
+    {
         left = right = NULL;
     }
 
@@ -83,6 +84,47 @@ public:
         return root;
     }
 
+    // Time Complexity : O(H)
+    BST *deleteNode(BST *root, int x)
+    {
+        if (root == NULL)
+            return root;
+        else if (root->data > x)
+            root->left = deleteNode(root->left, x);
+        else if (root->data < x)
+            root->right = deleteNode(root->right, x);
+        else
+        {
+            if (root->left == NULL)
+            {
+                BST *temp = root->right;
+                delete root;
+                return temp;
+            }
+            else if (root->right == NULL)
+            {
+                BST *temp = root->left;
+                delete root;
+                return temp;
+            }
+            else
+            {
+                BST *succ = getSuccessor(root);
+                root->data = succ->data;
+                root->right = deleteNode(root->right, succ->data);
+            }
+        }
+        return root;
+    }
+
+    BST *getSuccessor(BST *root)
+    {
+        root = root->right;
+        while (root != NULL && root->left != NULL)
+            root = root->left;
+        return root;
+    }
+
     void inorderTraversal(BST *root)
     {
         if (root != NULL)
@@ -108,6 +150,11 @@ int main()
         cout << "\nEnter 1 to continue : ";
         cin >> choice;
     }
+    obj.inorderTraversal(root);
+    int x;
+    cout << "Enter the Node to Delete : ";
+    cin >> x;
+    root = obj.deleteNode(root, x);
     obj.inorderTraversal(root);
     return 0;
 }

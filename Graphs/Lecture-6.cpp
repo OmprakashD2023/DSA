@@ -1,22 +1,20 @@
 /*
     DFS of an undirected graph
+    Time Complexity : O(V+E) where V is the no of vertices and E is the no of edges
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include "Lecture-1.cpp"
 using namespace std;
 
-void DFSRec(vector<int> adj[],int s,bool visited[]){
-    visited[s]=true;
-    cout<<s<<" ";
-    for(int u:adj[s]){
-        if(visited[u] == false)
-            DFSRec(adj,u,visited);
+void DFS(vector<int> adj[], int s, bool visited[])
+{
+    visited[s] = true;
+    cout << s << " ";
+    for (int u : adj[s])
+    {
+        if (visited[u] == false)
+            DFS(adj, u, visited);
     }
-}
-
-void DFS(vector<int> adj[],int V,int S){
-    bool visited[V]={false};
-    DFSRec(adj,S,visited);
 }
 
 int main()
@@ -39,6 +37,7 @@ int main()
     int s;
     cout << "Enter the source vertex : ";
     cin >> s;
-    DFS(adj, n, s);
+    bool visited[n] = {false};
+    DFS(adj, s, visited);
     return 0;
 }

@@ -1,6 +1,7 @@
 /*
     BFS of an undirected graph
     Given an undirected graph and a source vertex 's' ,print B.F.S. from the given source.
+    Time Complexity : O(V+E) where V is the no of vertices and E is the no of edges
 */
 
 #include <bits/stdc++.h>
