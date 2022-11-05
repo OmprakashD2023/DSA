@@ -40,7 +40,7 @@ string postToPre(string s)
             st.push(string(1, s[i]));
         }
     }
-    string ans = "";
+    string ans;
     while (!st.empty()) {
         ans += st.top();
         st.pop();

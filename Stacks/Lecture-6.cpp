@@ -25,6 +25,7 @@ int postfixEvaluation(string s)
             i--;
             st.push(num);
         }
+        
         else
         {
             int op2 = st.top();
