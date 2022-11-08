@@ -3,7 +3,7 @@
 */
 
 #include<bits/stdc++.h>
-#include "Linkd_List.cpp"
+#include "Linked_List.cpp"
 using namespace std;
 
 void deleteNode(Node *curr){

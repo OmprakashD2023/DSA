@@ -80,9 +80,9 @@ public:
             }
             */
             cout<<node->data<<" ";
-            if(node->left == NULL)  
+            if(node->left != NULL)  
                 q.push(node->left);
-            if(node->right == NULL)  
+            if(node->right != NULL)  
                 q.push(node->right);
         }
     }
