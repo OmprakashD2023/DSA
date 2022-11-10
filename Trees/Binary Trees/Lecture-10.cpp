@@ -31,8 +31,8 @@ public:
     {
         if (root == NULL)
             return 0;
-        int lh = obj.height(root->left);
-        int rh = obj.height(root->right);
+        int lh = diameterEfficient(root->left);
+        int rh = diameterEfficient(root->right);
         res = max(res, lh + rh);
         return max(lh, rh);
     }
