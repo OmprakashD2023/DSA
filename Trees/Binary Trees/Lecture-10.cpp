@@ -19,7 +19,7 @@ public:
             return 0;
         if (root->left == NULL && root->right)
             return 1;
-        int d1 = 1 + obj.height(root->left) + obj.height(root->right);
+        int d1 = obj.height(root->left) + obj.height(root->right);
         int d2 = diameter(root->left);
         int d3 = diameter(root->right);
         return max(d1, max(d2, d3));
@@ -33,8 +33,8 @@ public:
             return 0;
         int lh = obj.height(root->left);
         int rh = obj.height(root->right);
-        res = max(res, lh + rh + 1);
-        return 1 + max(lh, rh);
+        res = max(res, lh + rh);
+        return max(lh, rh);
     }
 
     int getDiameter()
