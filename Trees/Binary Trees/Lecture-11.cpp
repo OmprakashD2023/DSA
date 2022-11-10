@@ -21,7 +21,7 @@ public:
     Construction(int n)
     {
         this->preIndex = 0;
-        this->postIndex = 0;
+        this->postIndex = n - 1;
     }
 
     TreeNode *constructTreePre(vector<int> in, vector<int> pre, int is, int ie)
@@ -113,7 +113,7 @@ int main()
             cin >> x;
             post.push_back(x);
         }
-        root = obj.constructTreePre(in, post, n - 1, 0);
+        root = obj.constructTreePre(in, post, 0, n - 1);
         cout << "Tree : ";
         obj.preorderTraversal(root);
     }
