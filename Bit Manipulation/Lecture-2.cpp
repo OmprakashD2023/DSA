@@ -1,3 +1,5 @@
+//Find the two odd occuring integers from the list
+
 #include <iostream>
 using namespace std;
 

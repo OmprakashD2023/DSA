@@ -1,3 +1,5 @@
+//Find the number which occurs odd number of times
+
 #include <iostream>
 using namespace std;
 
