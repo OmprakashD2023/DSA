@@ -27,6 +27,20 @@ void Graph::addEdge(vector<int> adj[], int u, int v)
     adj[v].push_back(u);
 }
 
+/**
+ * If the current vertex is the root of the DFS tree and has more than one child, then it is an
+ * articulation point
+ * 
+ * @param adj Adjacency list of the graph
+ * @param u The current node
+ * @param visited A boolean array to keep track of visited vertices.
+ * @param disc discovery time of each vertex
+ * @param low The earliest visited vertex reachable from subtree rooted with current vertex.
+ * @param time Time counter for DFS
+ * @param parent The parent of the current node.
+ * @param isAP This is the array that will store the result. isAP[i] will be true if i is an
+ * articulation point.
+ */
 void Graph::articulationPoint(vector<int> adj[], int u, bool visited[], int disc[], int low[], int &time, int parent, bool isAP[])
 {
     int children = 0;
@@ -54,6 +68,13 @@ void Graph::articulationPoint(vector<int> adj[], int u, bool visited[], int disc
 		isAP[u] = true;
 }
 
+/**
+ * The function articulationPoint() is called for every vertex in the graph. If the vertex is not
+ * visited, then it is called recursively for all its adjacent vertices. If the vertex is visited, then
+ * it is checked if it is an articulation point
+ * 
+ * @param adj Adjacency list of the graph
+ */
 void Graph::AP(vector<int> adj[])
 {
     int disc[V] = { 0 };

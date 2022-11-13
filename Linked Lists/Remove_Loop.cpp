@@ -4,7 +4,8 @@ using namespace std;
 
 void removeLoop(Node *head)
 {
-    Node *slow_ptr = *fast_ptr = head;
+    Node *slow_ptr, *fast_ptr;
+    slow_ptr = fast_ptr = head;
     while (fast_ptr != NULL && fast_ptr->next != NULL)
     {
         slow_ptr = slow_ptr->next;
@@ -29,7 +30,6 @@ void removeLoop(Node *head)
 
     /*
 
-    TODO: Analyze This Code
     Node *fast = head;
     Node *slow = head;
     Node *temp = NULL;

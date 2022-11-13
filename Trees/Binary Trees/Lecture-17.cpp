@@ -15,6 +15,17 @@ using namespace std;
 
 class LCA : public BinaryTree
 {
+    /**
+     * If the root is null, return false. Otherwise, add the root to the path, and if the root's data
+     * is the number we're looking for, return true. Otherwise, if the number is found in the left or
+     * right subtree, return true. Otherwise, remove the root from the path and return false
+     * 
+     * @param p This is the vector that will store the path from the root to the node with value n.
+     * @param n The node whose path we want to find.
+     * @param root The root of the tree
+     * 
+     * @return true if the path is found and false if the path is not found.
+     */
     bool findPath(vector<TreeNode *> &p, int n, TreeNode *root)
     {
         if (root == NULL)
@@ -29,6 +40,15 @@ class LCA : public BinaryTree
     }
 
 public:
+    /**
+     * Find the paths from root to n1 and root to n2, and return the last common node in the two paths
+     * 
+     * @param root The root of the binary tree.
+     * @param n1 The first node to find the path.
+     * @param n2 The second node to find the path.
+     * 
+     * @return The lowest common ancestor of the two nodes.
+     */
     TreeNode *lowestCommonAncestor(TreeNode *root, int n1, int n2)
     {
         vector<TreeNode *> path1, path2;
@@ -42,6 +62,17 @@ public:
         return NULL;
     }
 
+    /**
+     * If the current node is one of the nodes, return it. Otherwise, recursively call the function on
+     * the left and right subtrees. If the left subtree returns a non-null value, return that value.
+     * Otherwise, return the value returned by the right subtree
+     * 
+     * @param root The root of the tree
+     * @param n1 First node,
+     * @param n2 Second node whose LCA we want to find.
+     * 
+     * @return The lowest common ancestor of the two nodes.
+     */
     TreeNode *lowestCommonAncestorEfficient(TreeNode *root, int n1, int n2)
     {
         if (root == NULL)
