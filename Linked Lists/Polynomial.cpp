@@ -155,7 +155,8 @@ public:
         {
             cout << head->coef << "X^" << head->expo;
             head = head->next;
-            if (head->expo != -1)
+            if (head->expo
+             != -1)
                 cout << "+";
             else
                 cout << endl;

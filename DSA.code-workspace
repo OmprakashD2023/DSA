@@ -86,6 +86,7 @@
 				"bold": false,
 				"italic": false
 			}
-		]
+		],
+		"docwriter.style": "Auto-detect"
 	}
 }
