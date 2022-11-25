@@ -1,7 +1,7 @@
 /*
     Iterative Preorder Traversal
     Time Complexity : O(n)
-    Space Complexity : O(n) Extra space for stack
+    Space Complexity : O(H) Extra space for stack
 */
 
 #include <bits/stdc++.h>
