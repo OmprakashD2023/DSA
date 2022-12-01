@@ -1,3 +1,0 @@
-/*
-    Find the Odd Occurring Element using the Divide and Conquer Strategy
-*/
